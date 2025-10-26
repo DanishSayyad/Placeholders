@@ -15,24 +15,100 @@
 
         <main class="cards-grid">
             <div class="card">
-                <div class="card-icon">🚀</div>
-                <h2>Coming Soon</h2>
+                <div class="card-header">
+                    <h2>Coming Soon</h2>
+                    <button class="copy-btn" onclick="copyURL('pages/coming-soon.html')" title="Copy URL">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                </div>
                 <p>Perfect for websites under development</p>
                 <a href="pages/coming-soon.html" class="btn">View Page</a>
             </div>
 
             <div class="card">
-                <div class="card-icon">🔧</div>
-                <h2>Maintenance</h2>
+                <div class="card-header">
+                    <h2>Maintenance</h2>
+                    <button class="copy-btn" onclick="copyURL('pages/maintenance.html')" title="Copy URL">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                </div>
                 <p>For scheduled maintenance periods</p>
                 <a href="pages/maintenance.html" class="btn">View Page</a>
             </div>
 
+            <div class="card">
+                <div class="card-header">
+                    <h2>In Development</h2>
+                    <button class="copy-btn" onclick="copyURL('pages/in-development.html')" title="Copy URL">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                </div>
+                <p>For pages actively being worked on</p>
+                <a href="pages/in-development.html" class="btn">View Page</a>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>404 - Not Found</h2>
+                    <button class="copy-btn" onclick="copyURL('pages/404.html')" title="Copy URL">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                </div>
+                <p>Page not found error</p>
+                <a href="pages/404.html" class="btn">View Page</a>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>500 - Server Error</h2>
+                    <button class="copy-btn" onclick="copyURL('pages/500.html')" title="Copy URL">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                </div>
+                <p>Internal server error</p>
+                <a href="pages/500.html" class="btn">View Page</a>
+            </div>
         </main>
 
         <footer class="footer">
             <p>Created by <a href="https://github.com/DanishSayyad" target="_blank" rel="noopener noreferrer">Danish Sayyad</a></p>
         </footer>
     </div>
+
+    <div id="toast" class="toast">URL copied to clipboard!</div>
+
+    <script>
+        function copyURL(path) {
+            const fullURL = window.location.origin + '/' + path;
+            navigator.clipboard.writeText(fullURL).then(() => {
+                showToast();
+            }).catch(err => {
+                console.error('Failed to copy URL: ', err);
+            });
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
